@@ -9,10 +9,23 @@ createApp ({
     },
     created() {
         axios
-        .get('https//localhost/progettiBoolean/php-todo-list-json/todos.php')
+        .get('https://localhost/progettiBoolean/php-todo-list-json/todos.php')
         .then (res => {
             console.log(res.data);
-            this.todos
+            this.todos = res.data;
         });
+    },
+    methods: {
+        addTodo(task) {
+            axios
+                .post('https://localhost/progettiBoolean/php-todo-list-json/todos.php' {
+                    task: this.newTodo,
+                    status: "false"
+                })
+                .then(res => {
+                    this.todos.push(res.data);
+                    this.newTodo = '';
+                    });
+        }
     }
 }).mount('#app');

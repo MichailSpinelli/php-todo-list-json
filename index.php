@@ -42,8 +42,10 @@
 
     <main id="app">
         <div class="container">
+            <input type="text" v-model="newTodo" placeholder="Aggiungi una nuova todo">
+            <button @click="addTodo">Aggiungi</button>
             <ul>
-                <li v-for="todo in todos">
+                <li v-for="todo in todos" :key="todo.task">
                     {{ todo.task }}
                 </li>
             </ul>
@@ -51,11 +53,9 @@
     </main>
     
     
-    <script type="text/javascript" src="./js/scripts.js"></script>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript" src="./js/scripts.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
-
-
-
 </html>
